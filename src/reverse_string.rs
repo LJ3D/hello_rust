@@ -5,6 +5,7 @@ pub mod reverse_string{
         println!("===========================");
         println!("===== String reverser =====");
         println!("===========================");
+        
         // 1: Get user input
         println!("Input a string to reverse:");
         let mut input = String::new();

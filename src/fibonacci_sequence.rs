@@ -2,10 +2,11 @@ pub mod fibonacci_sequence{
     use std::io;
 
     pub fn calculate_fibonacci_sequence(){
-        // 1: Get user input for number of iterations to calculate
         println!("===========================");
         println!("==== Fibonacci sequence ===");
         println!("===========================");
+
+        // 1: Get user input for number of iterations to calculate
         println!("Enter the number of iterations to calculate:");
         let mut n_iterations = String::new();
         io::stdin().read_line(&mut n_iterations)

@@ -4,6 +4,8 @@ mod reverse_string;
 use crate::reverse_string::reverse_string::reverse_a_string;
 mod fibonacci_sequence;
 use crate::fibonacci_sequence::fibonacci_sequence::calculate_fibonacci_sequence;
+mod prime_number_checker;
+use crate::prime_number_checker::prime_number_checker::check_prime_number;
 
 use std::io;
 
@@ -36,6 +38,7 @@ fn main() {
             1 => play_guessing_game(),
             2 => reverse_a_string(),
             3 => calculate_fibonacci_sequence(),
+            4 => check_prime_number(),
             0 => break,
             _ => println!("Please enter a valid option!"),
         }

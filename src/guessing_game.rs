@@ -4,13 +4,14 @@ pub mod guessing_game{
     use std::cmp::Ordering;
 
     pub fn play_guessing_game() {
-        // Create a random number between 1 and 100, and a variable to store the number of guesses
-        let secret_number: u32 = rand::thread_rng().gen_range(1..101);
-        let mut attempts: u32 = 0;
         println!("===========================");
         println!("==== Guess the number! ====");
         println!("====     0 - 100       ====");
         println!("===========================");
+
+        // Create a random number between 1 and 100, and a variable to store the number of guesses
+        let secret_number: u32 = rand::thread_rng().gen_range(1..101);
+        let mut attempts: u32 = 0;
         loop{
             // 1: Get user input
             println!("Input your guess:");
