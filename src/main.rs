@@ -1,43 +1,43 @@
+mod guessing_game;
+use crate::guessing_game::guessing_game::play_guessing_game;
+mod reverse_string;
+use crate::reverse_string::reverse_string::reverse_a_string;
+
 use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
 
 fn main() {
-    // Create a random number between 1 and 100, and a variable to store the number of guesses
-    let secret_number: u32 = rand::thread_rng().gen_range(1..101);
-    let mut attempts: u32 = 0;
-    
-    println!("==== Guess the number! ====");
     loop{
-        // 1: Get user input
-        println!("Input your guess:");
-        let mut guess = String::new();
-        io::stdin().read_line(&mut guess)
+        // 1: Show the available options
+        println!("==== Select some code to run! ====");
+        println!("0: Exit");
+        println!("1: Guessing game");
+        println!("2: Reverse a string");
+        println!("3: Fibonacci sequence");
+        println!("4: Prime number checker");
+        
+        // 2: Get user input
+        let mut input = String::new();
+        io::stdin().read_line(&mut input)
             .expect("Failed to read line");
         
-        // 2: Convert user input to u32
-        let guess_int: u32 = match guess.trim().parse() {
+        // 3: Convert user input to u32
+        let input_int: u32 = match input.trim().parse() {
             Ok(num) => num,
             Err(_) => {
                 println!("Please input a number!");
-                continue;
+                continue; // Terminates the current loop iteration and starts the next one
             },
         };
 
-        // 3: Print user input
-        println!("You guessed: {}", guess_int);
-        attempts += 1; // And increment the number of attempts
-
-        // 4: Compare user input to secret number
-        match guess_int.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => { // If the user guessed correctly, they win!
-                println!("You win!");
-                break; // Break out of the loop, ending the game
-            }
+        // 4: Run the selected code based on the user input
+        match input_int {
+            1 => play_guessing_game(),
+            2 => reverse_a_string(),
+            0 => break,
+            _ => println!("Please enter a valid option!"),
         }
     }
-    // Finally, print the number of attempts it took the user to guess the number
-    println!("You took {} attempts.", attempts);
+    
+    // Say goodbye to the user
+    println!("Goodbye!");
 }
