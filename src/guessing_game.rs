@@ -7,9 +7,10 @@ pub mod guessing_game{
         // Create a random number between 1 and 100, and a variable to store the number of guesses
         let secret_number: u32 = rand::thread_rng().gen_range(1..101);
         let mut attempts: u32 = 0;
-        
+        println!("===========================");
         println!("==== Guess the number! ====");
         println!("====     0 - 100       ====");
+        println!("===========================");
         loop{
             // 1: Get user input
             println!("Input your guess:");
@@ -18,7 +19,7 @@ pub mod guessing_game{
                 .expect("Failed to read line");
             
             // 2: Convert user input to u32
-            let guess_int: u32 = match guess.trim().parse() {
+            let guess_int: u32 = match guess.trim().parse(){
                 Ok(num) => num,
                 Err(_) => {
                     println!("Please input a number!");
@@ -31,7 +32,7 @@ pub mod guessing_game{
             attempts += 1; // And increment the number of attempts
 
             // 4: Compare user input to secret number
-            match guess_int.cmp(&secret_number) {
+            match guess_int.cmp(&secret_number){
                 Ordering::Less => println!("Too small!"),
                 Ordering::Greater => println!("Too big!"),
                 Ordering::Equal => { // If the user guessed correctly, they win!

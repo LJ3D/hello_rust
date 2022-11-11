@@ -2,6 +2,9 @@ pub mod reverse_string{
     use std::io;
 
     pub fn reverse_a_string(){
+        println!("===========================");
+        println!("===== String reverser =====");
+        println!("===========================");
         // 1: Get user input
         println!("Input a string to reverse:");
         let mut input = String::new();
