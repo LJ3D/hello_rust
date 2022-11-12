@@ -23,7 +23,7 @@ pub mod prime_number_checker{
         io::stdin().read_line(&mut input)
             .expect("Failed to read line");
         let input_int: u32 = match input.trim().parse(){
-            Ok(input_int) => input_int,
+            Ok(num) => num,
             Err(_) => {
                 println!("Not a valid number! Defaulting to 8");
                 8

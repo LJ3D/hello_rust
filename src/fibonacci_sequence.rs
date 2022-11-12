@@ -12,7 +12,7 @@ pub mod fibonacci_sequence{
         io::stdin().read_line(&mut n_iterations)
             .expect("Failed to read line");
         let n_iterations_int: u32 = match n_iterations.trim().parse(){
-            Ok(n_iterations_int) => n_iterations_int,
+            Ok(num) => num,
             Err(_) => {
                 println!("Not a valid number! Defaultuing to 8");
                 8 // Default to 8 iterations
